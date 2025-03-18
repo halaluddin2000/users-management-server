@@ -1,7 +1,12 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 const port = process.env.PORT || 5000;
+
+// midule ower
+
+app.use(cors());
 
 
 const users = [
@@ -17,6 +22,9 @@ app.get('/', (req, res) => {
 })
 app.get('/users', (req, res) => {
     res.send(users)
+})
+app.post('/users', (req, res) => {
+    console.log(req.body)
 })
 app.listen(port, () => {
     console.log(`server is running on PORT: ${port}`)
